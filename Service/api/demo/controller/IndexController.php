@@ -13,6 +13,9 @@ use cmf\controller\RestBaseController;
 use cmf\lib\Upload;
 
 //https://www.kancloud.cn/thinkcmf/doc5_1/957911
+// http://域名:88/api.php/模块/控制器/方法/参数名/参数值/参数名1/参数值1
+// http://111.231.31.70/api.php/demo/index/index
+// http://111.231.31.70/api.php/demo/index/read/id/99
 
 class IndexController extends RestBaseController
 {
