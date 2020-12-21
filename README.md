@@ -4,7 +4,20 @@
 替代NAS中转服务器。 1.APP:手机应用，上传/下载资源 2. 服务器: 中转, 接口上传 下载 存储资源 3. NAS 同步应用： 下载服务器资源，同步数据
 
 #### 软件架构
-软件架构说明
+----
+##### APP
+- 采用Hbuilder+MUI架构
+
+##### Service(服务器端)
+- 采用ThinkCMF + MYSQL
+
+##### NAS
+- 采用python/PHP 
+
+```
+graph LR
+APP-->Service-->NAS
+```
 
 
 #### 安装教程
