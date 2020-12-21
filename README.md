@@ -15,8 +15,7 @@
 - 采用python/PHP 
 
 ```
-graph LR
-APP-->Service-->NAS
+APP<-->Service<-->NAS
 ```
 
 
