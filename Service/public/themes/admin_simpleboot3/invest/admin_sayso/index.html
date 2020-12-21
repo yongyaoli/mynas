@@ -1,0 +1,29 @@
+<include file="public@header"/>
+</head>
+<body>
+<div class="wrap js-check-wrap">
+    <ul class="nav nav-tabs">
+        <li><a href="{:url('AdminCustomer/index')}">客户管理</a></li>
+        <li><a href="{:url('AdminCustomer/add')}">添加客户</a></li>
+        <li class="active"><a>编辑客户</a></li>
+    </ul>
+    <div class="row margin-top-20">
+        <div class="col-md-2">
+            <div class="list-group">
+                <a class="list-group-item" href="#A" data-toggle="tab">基本属性</a>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <form class="js-ajax-form" action="{:url('AdminSayso/download')}" method="post">
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary js-ajax-submit">下载数据</button>
+                </div>
+            </form>
+
+        </div>
+
+    </div>
+</div>
+<script type="text/javascript" src="__STATIC__/js/admin.js"></script>
+</body>
+</html>

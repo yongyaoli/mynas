@@ -1,0 +1,438 @@
+<script>
+    let nameMap = {
+            "Afghanistan": "Afghanistan",
+            "Angola": "Angola",
+            "Albania": "Albania",
+            "Algeria": "Algeria",
+            "Argentina": "Argentina",
+            "Armenia": "Armenia",
+            "Australia": "Australia",
+            "Austria": "Austria",
+            "Azerbaijan": "Azerbaijan",
+            "Bahamas": "Bahamas",
+            "Bangladesh": "Bangladesh",
+            "Belgium": "Belgium",
+            "Benin": "Benin",
+            "Burkina Faso": "Burkina-Faso",
+            "Burundi": "Burundi",
+            "Bulgaria": "Bulgaria",
+            "Bosnia and Herz.": "Bosnia and Herz",
+            "Belarus": "Belarus",
+            "Belize": "Belize",
+            "Bermuda": "Bermuda",
+            "Bolivia": "Bolivia",
+            "Brazil": "Brazil",
+            "Brunei": "Brunei",
+            "Bhutan": "Bhutan",
+            "Botswana": "Botswana",
+            "Cambodia": "Cambodia",
+            "Cameroon": "Cameroon",
+            "Canada": "Canada",
+            "Central African Rep.": "CAR",
+            "Chad": "Chad",
+            "Chile": "Chile",
+            "China": "China",
+            "Colombia": "Colombia",
+            "Congo": "Congo",
+            "Costa Rica": "Costa Rica",
+            "Cote d'Ivoire": "CIV",
+            "Croatia": "Croatia",
+            "Cuba": "Cuba",
+            "Cyprus": "Cyprus",
+            "Czech Rep.": "CZ",
+            "North Korea": "North Korea",
+            "Dem. Rep. Congo": "Congo",
+            "Denmark": "Denmark",
+            "Djibouti": "Djibouti",
+            "Dominican Rep.": "Dominican Rep",
+            "Ecuador": "Ecuador",
+            "Egypt": "Egypt",
+            "El Salvador": "El Salvador",
+            "Eq. Guinea": "Eq. Guinea",
+            "Eritrea": "Eritrea",
+            "Estonia": "Estonia",
+            "Ethiopia": "Ethiopia",
+            "Falkland Is.": "Falkland Islands",
+            "Fiji": "Fiji",
+            "Finland": "Finland",
+            "France": "France",
+            "French Guiana": "French Guiana",
+            "Fr. S. Antarctic Lands": "Fr. S",
+            "Gabon": "Gabon",
+            "Gambia": "Gambia",
+            "Germany": "Germany",
+            "Georgia": "Georgia",
+            "Ghana": "Ghana",
+            "Greece": "Greece",
+            "Greenland": "Greenland",
+            "Guatemala": "Guatemala",
+            "Guinea": "Guinea",
+            "Guinea-Bissau": "Guinea-Bissau",
+            "Guyana": "Guyana",
+            "Haiti": "Haiti",
+            "Heard I. and McDonald Is.": "Heard I. and McDonald Is",
+            "Honduras": "Honduras",
+            "Hungary": "Hungary",
+            "Iceland": "Iceland",
+            "India": "India",
+            "Indonesia": "Indonesia",
+            "Iran": "Iran",
+            "Iraq": "Iraq",
+            "Ireland": "Ireland",
+            "Israel": "Israel",
+            "Italy": "Italy",
+            "Ivory Coast": "Ivory Coast",
+            "Jamaica": "Jamaica",
+            "Japan": "Japan",
+            "Jordan": "Jordan",
+            "Kashmir": "Kashmir",
+            "Kazakhstan": "Kazakhstan",
+            "Kenya": "Kenya",
+            "Kosovo": "Kosovo",
+            "Kuwait": "Kuwait",
+            "Kyrgyzstan": "Kyrgyzstan",
+            "Laos": "Laos",
+            "Lao PDR": "Lao PDR",
+            "Latvia": "Latvia",
+            "Lebanon": "Lebanon",
+            "Lesotho": "Lesotho",
+            "Liberia": "Liberia",
+            "Libya": "Libya",
+            "Lithuania": "Lithuania",
+            "Luxembourg": "Luxembourg",
+            "Madagascar": "Madagascar",
+            "Macedonia": "Macedonia",
+            "Malawi": "Malawi",
+            "Malaysia": "Malaysia",
+            "Mali": "Mali",
+            "Mauritania": "Mauritania",
+            "Mexico": "Mexico",
+            "Moldova": "Moldova",
+            "Mongolia": "Mongolia",
+            "Montenegro": "Montenegro",
+            "Morocco": "Morocco",
+            "Mozambique": "Mozambique",
+            "Myanmar": "Myanmar",
+            "Namibia": "Namibia",
+            "Netherlands": "Netherlands",
+            "New Caledonia": "New Caledonia",
+            "New Zealand": "New Zealand",
+            "Nepal": "Nepal",
+            "Nicaragua": "Nicaragua",
+            "Niger": "Niger",
+            "Nigeria": "Nigeria",
+            "Korea": "Korea",
+            "Northern Cyprus": "Northern Cyprus",
+            "Norway": "Norway",
+            "Oman": "Oman",
+            "Pakistan": "Pakistan",
+            "Panama": "Panama",
+            "Papua New Guinea": "Papua New Guinea",
+            "Paraguay": "Paraguay",
+            "Peru": "Peru",
+            "Republic of the Congo": "Congo",
+            "Philippines": "Philippines",
+            "Poland": "Poland",
+            "Portugal": "Portugal",
+            "Puerto Rico": "Puerto Rico",
+            "Qatar": "Qatar",
+            "Romania": "Romania",
+            "Russia": "Russia",
+            "Rwanda": "Rwanda",
+            "Samoa": "Samoa",
+            "Saudi Arabia": "Saudi Arabia",
+            "Senegal": "Senegal",
+            "Serbia": "Serbia",
+            "Sierra Leone": "Sierra Leone",
+            "Slovakia": "Slovakia",
+            "Slovenia": "Slovenia",
+            "Solomon Is.": "Solomon Is.",
+            "Somaliland": "Somaliland",
+            "Somalia": "Somalia",
+            "South Africa": "SA",
+            "S. Geo. and S. Sandw. Is.": "S. Geo. and S. Sandw. Is.",
+            "S. Sudan": "S. Sudan",
+            "Spain": "Spain",
+            "Sri Lanka": "Sri Lanka",
+            "Sudan": "Sudan",
+            "Suriname": "Suriname",
+            "Swaziland": "Swaziland",
+            "Sweden": "Sweden",
+            "Switzerland": "Switzerland",
+            "Syria": "Syria",
+            "Tajikistan": "Tajikistan",
+            "Tanzania": "Tanzania",
+            "Thailand": "Thailand",
+            "Timor-Leste": "Timor-Leste",
+            "Togo": "Togo",
+            "Trinidad and Tobago": "Trinidad and Tobago",
+            "Tunisia": "Tunisia",
+            "Turkey": "Turkey",
+            "Turkmenistan": "Turkmenistan",
+            "Uganda": "Uganda",
+            "Ukraine": "Ukraine",
+            "United Arab Emirates": "UAE",
+            "United Kingdom": "United Kingdom",
+            "United Republic of Tanzania": "URT",
+            "United States": "United States",
+            "Uruguay": "Uruguay",
+            "Uzbekistan": "Uzbekistan",
+            "Vanuatu": "Vanuatu",
+            "Venezuela": "Venezuela",
+            "Vietnam": "Vietnam",
+            "West Bank": "West Bank",
+            "W. Sahara": "W. Sahara",
+            "Yemen": "Yemen",
+            "Zambia": "Zambia",
+            "Zimbabwe": "Zimbabwe"
+        },
+
+        option = {
+            title: {
+
+                text: "全球完成样本",
+                left: 'center'
+            },
+            tooltip: {
+                trigger: 'item'
+            },
+            visualMap: {
+                type: 'piecewise',
+                pieces: [
+                    {min: 100000, max: 10000000, label: '>=10000', color: '#FF34B3'},
+                    {min: 10000, max: 99999, label: '10000-99999', color: '#6A5ACD'},
+                    {min: 5000, max: 9999, label: '5000-9999', color: '#436EEE'},
+                    {min: 1000, max: 4990, label: '1000-4999', color: '#5CACEE'},
+                    {min: 100, max: 999, label: '100-999', color: '#B2DFEE'},
+                    {min: 1, max: 99, label: '1-99', color: '#fdf2d5'},
+                    {min: 0, max: 0, label: '0', color: '#fefefe'},
+                ],
+                color: ['#E0022B', '#E09107', '#A3E00B'],
+                calculable: true,
+                top: "20%",
+            },
+            nameMap: nameMap,
+            toolbox: {
+                show: true,
+                orient: 'vertical',
+                left: 'right',
+                top: '20%',
+                feature: {
+                    mark: {show: true},
+                    dataView: {show: true, readOnly: false},
+                    restore: {show: true},
+                    saveAsImage: {show: true}
+                }
+            },
+            roamController: {
+                show: true,
+                left: 'right',
+                mapTypeControl: {
+                    'world': true
+                }
+            },
+            series: [
+                {
+                    name: "完成数",
+                    type: 'map',
+                    mapType: 'world',
+                    roam: false,
+                    label: {
+                        show: false,   // 这里就不在地图上显示名字了，200多个会晕的
+                        color: 'rgb(0, 0, 0)'
+                    },
+                    data: []
+                }
+            ]
+        };
+
+    //获取数据
+    function getData() {
+        var d ='[{"name":"Afghanistan","value":0},{"name":"Angola","value":0},{"name":"Albania","value":0},{"name":"Algeria","value":0},{"name":"Argentina","value":0},{"name":"Armenia","value":0},{"name":"Australia","value":5946},{"name":"Austria","value":0},{"name":"Azerbaijan","value":0},{"name":"Bahamas","value":0},{"name":"Bangladesh","value":0},{"name":"Belgium","value":1},{"name":"Benin","value":0},{"name":"Burkina Faso","value":0},{"name":"Burundi","value":0},{"name":"Bulgaria","value":0},{"name":"Bosnia and Herz.","value":0},{"name":"Belarus","value":0},{"name":"Belize","value":0},{"name":"Bermuda","value":0},{"name":"Bolivia","value":0},{"name":"Brazil","value":0},{"name":"Brunei","value":0},{"name":"Bhutan","value":0},{"name":"Botswana","value":0},{"name":"Cambodia","value":0},{"name":"Cameroon","value":0},{"name":"Canada","value":1128},{"name":"Central African Rep.","value":0},{"name":"Chad","value":0},{"name":"Chile","value":2},{"name":"China","value":356531},{"name":"Colombia","value":0},{"name":"Congo","value":0},{"name":"Costa Rica","value":0},{"name":"Cote d\'Ivoire","value":0},{"name":"Croatia","value":0},{"name":"Cuba","value":0},{"name":"Cyprus","value":0},{"name":"Czech Rep.","value":0},{"name":"North Korea","value":0},{"name":"Dem. Rep. Congo","value":0},{"name":"Denmark","value":5},{"name":"Djibouti","value":0},{"name":"Dominican Rep.","value":0},{"name":"Ecuador","value":38},{"name":"Egypt","value":0},{"name":"El Salvador","value":0},{"name":"Eq. Guinea","value":0},{"name":"Eritrea","value":0},{"name":"Estonia","value":0},{"name":"Ethiopia","value":0},{"name":"Falkland Is.","value":0},{"name":"Fiji","value":0},{"name":"Finland","value":0},{"name":"France","value":510},{"name":"French Guiana","value":0},{"name":"Fr. S. Antarctic Lands","value":0},{"name":"Gabon","value":0},{"name":"Gambia","value":0},{"name":"Germany","value":1074},{"name":"Georgia","value":0},{"name":"Ghana","value":0},{"name":"Greece","value":0},{"name":"Greenland","value":0},{"name":"Guatemala","value":0},{"name":"Guinea","value":0},{"name":"Guinea-Bissau","value":0},{"name":"Guyana","value":0},{"name":"Haiti","value":0},{"name":"Heard I. and McDonald Is.","value":0},{"name":"Honduras","value":0},{"name":"Hungary","value":0},{"name":"Iceland","value":0},{"name":"India","value":1338},{"name":"Indonesia","value":5330},{"name":"Iran","value":0},{"name":"Ireland","value":0},{"name":"Israel","value":0},{"name":"Italy","value":16},{"name":"Ivory Coast","value":0},{"name":"Jamaica","value":0},{"name":"Japan","value":4174},{"name":"Jordan","value":0},{"name":"Kashmir","value":0},{"name":"Kazakhstan","value":0},{"name":"Kenya","value":0},{"name":"Kosovo","value":0},{"name":"Kuwait","value":0},{"name":"Kyrgyzstan","value":0},{"name":"Laos","value":0},{"name":"Lao PDR","value":0},{"name":"Latvia","value":0},{"name":"Lebanon","value":0},{"name":"Lesotho","value":0},{"name":"Liberia","value":0},{"name":"Libya","value":0},{"name":"Lithuania","value":0},{"name":"Luxembourg","value":0},{"name":"Madagascar","value":0},{"name":"Macedonia","value":0},{"name":"Malawi","value":0},{"name":"Malaysia","value":8073},{"name":"Mali","value":0},{"name":"Mauritania","value":0},{"name":"Mexico","value":17},{"name":"Moldova","value":0},{"name":"Mongolia","value":0},{"name":"Montenegro","value":0},{"name":"Morocco","value":0},{"name":"Mozambique","value":0},{"name":"Myanmar","value":0},{"name":"Namibia","value":0},{"name":"Netherlands","value":0},{"name":"New Caledonia","value":0},{"name":"New Zealand","value":2370},{"name":"Nepal","value":0},{"name":"Nicaragua","value":0},{"name":"Niger","value":0},{"name":"Nigeria","value":0},{"name":"Korea","value":3708},{"name":"Northern Cyprus","value":0},{"name":"Norway","value":7},{"name":"Oman","value":0},{"name":"Pakistan","value":0},{"name":"Panama","value":0},{"name":"Papua New Guinea","value":0},{"name":"Paraguay","value":0},{"name":"Peru","value":0},{"name":"Republic of the Congo","value":0},{"name":"Philippines","value":6500},{"name":"Poland","value":4},{"name":"Portugal","value":0},{"name":"Puerto Rico","value":0},{"name":"Qatar","value":0},{"name":"Romania","value":0},{"name":"Russia","value":273},{"name":"Rwanda","value":0},{"name":"Samoa","value":0},{"name":"Saudi Arabia","value":0},{"name":"Senegal","value":0},{"name":"Serbia","value":0},{"name":"Sierra Leone","value":0},{"name":"Slovakia","value":0},{"name":"Slovenia","value":0},{"name":"Solomon Is.","value":0},{"name":"Somaliland","value":0},{"name":"Somalia","value":0},{"name":"South Africa","value":367},{"name":"S. Geo. and S. Sandw. Is.","value":0},{"name":"S. Sudan","value":0},{"name":"Spain","value":14},{"name":"Sri Lanka","value":0},{"name":"Sudan","value":0},{"name":"Suriname","value":0},{"name":"Swaziland","value":0},{"name":"Sweden","value":89},{"name":"Switzerland","value":0},{"name":"Syria","value":0},{"name":"Tajikistan","value":0},{"name":"Tanzania","value":0},{"name":"Thailand","value":4559},{"name":"Timor-Leste","value":0},{"name":"Togo","value":0},{"name":"Trinidad and Tobago","value":0},{"name":"Tunisia","value":0},{"name":"Turkey","value":0},{"name":"Turkmenistan","value":0},{"name":"Uganda","value":0},{"name":"Ukraine","value":67},{"name":"United Arab Emirates","value":0},{"name":"United Kingdom","value":2254},{"name":"United Republic of Tanzania","value":0},{"name":"United States","value":60621},{"name":"Uruguay","value":0},{"name":"Uzbekistan","value":0},{"name":"Vanuatu","value":0},{"name":"Venezuela","value":0},{"name":"Vietnam","value":3227},{"name":"West Bank","value":0},{"name":"W.Sahara","value":0},{"name":"Yemen","value":0},{"name":"Zambia","value":0},{"name":"Zimbabwe","value":0}]';
+        var newArr = [];
+        if (d) {
+            //alert(JSON.stringify(data));
+            for (var i = 0; i < data.length; i++) {
+                var json = {
+                    // name: res.areaTree[i].name,
+                    // value: res.areaTree[i].total.confirm - res.areaTree[i].total.dead - res.areaTree[i].total.heal,
+                    name: data[i].name,
+                    value: data[i].value,
+                }
+                // alert(JSON.stringify(json));
+                newArr.push(json)
+            }
+            //使用指定的配置项和数据显示图表
+            myChart.setOption({
+                series: [
+                    {
+                        name: "完成数",
+                        type: 'map',
+                        mapType: 'world',
+                        roam: true,
+                        label: {
+                            fontSize: 8,
+                            show: false,
+                            color: 'rgb(0, 0, 0)'
+                        },
+                        // 地图区域的多边形 图形样式
+                        itemStyle: {
+                            // areaColor: '#7B68EE', // 地图区域的颜色 如果设置了visualMap，areaColor属性将不起作用
+                            borderWidth: 0.5, // 描边线宽 为 0 时无描边
+                            borderColor: '#000', // 图形的描边颜色 支持的颜色格式同 color，不支持回调函数
+                            borderType: 'solid' // 描边类型，默认为实线，支持 'solid', 'dashed', 'dotted'
+                        },
+                        // 高亮状态下的多边形和标签样式
+                        emphasis: {
+                            label: {
+                                show: true, // 是否显示标签
+                                color: '#fff' // 文字的颜色 如果设置为 'auto'，则为视觉映射得到的颜色，如系列色
+                            },
+                            itemStyle: {
+                                areaColor: '#FF6347' // 地图区域的颜色
+                            }
+                        },
+
+                        data: newArr
+                    }
+                ]
+            });
+
+        }
+        // $.ajax({
+        //     url: "/globals",
+        //     dataType: "json",
+        //     success: function (data) {
+        //
+        //     }
+        // })
+    }
+
+    //初始化echarts实例
+    var myEcharts = document.getElementById('myEcharts');
+    var myChart = echarts.init(myEcharts);
+    myChart.setOption(option);
+    getData();
+
+
+    //js增长数据
+    $.fn.countTo = function (options) {
+        options = options || {};
+
+        return $(this).each(function () {
+            var settings = $.extend({}, $.fn.countTo.defaults, {
+                from: $(this).data('from'),
+                to: $(this).data('to'),
+                speed: $(this).data('speed'),
+                refreshInterval: $(this).data('refresh-interval'),
+                decimals: $(this).data('decimals')
+            }, options);
+            var loops = Math.ceil(settings.speed / settings.refreshInterval),
+                increment = (settings.to - settings.from) / loops;
+            var self = this,
+                $self = $(this),
+                loopCount = 0,
+                value = settings.from,
+                data = $self.data('countTo') || {};
+
+            $self.data('countTo', data);
+
+
+            if (data.interval) {
+                clearInterval(data.interval);
+            }
+            data.interval = setInterval(updateTimer, settings.refreshInterval);
+
+            render(value);
+
+            function updateTimer() {
+                value += increment;
+                loopCount++;
+
+                render(value);
+
+                if (typeof (settings.onUpdate) == 'function') {
+                    settings.onUpdate.call(self, value);
+                }
+
+                if (loopCount >= loops) {
+                    $self.removeData('countTo');
+                    clearInterval(data.interval);
+                    value = settings.to;
+
+                    if (typeof (settings.onComplete) == 'function') {
+                        settings.onComplete.call(self, value);
+                    }
+                }
+            }
+
+            function render(value) {
+                var formattedValue = settings.formatter.call(self, value, settings);
+                $self.html(formattedValue);
+            }
+        });
+    };
+
+    $.fn.countTo.defaults = {
+        from: 0,
+        to: 0,
+        speed: 1000,
+        refreshInterval: 100,
+        decimals: 0,
+        formatter: formatter,
+        onUpdate: null,
+        onComplete: null
+    };
+
+    function formatter(value, settings) {
+        return value.toFixed(settings.decimals);
+    }
+
+
+    // custom formatting example
+    $('.timer2').data('countToOptions', {
+        formatter: function (value, options) {
+            return value.toFixed(options.decimals).replace(/\B(?=(?:\d{3})+(?!\d))/g, ',');
+        }
+    });
+
+    // start all the timers
+
+
+    function count(options) {
+        var $this = $(this);
+        options = $.extend({}, options || {}, $this.data('countToOptions') || {});
+        $this.countTo(options);
+    }
+
+    //$('.timer2').each(count);
+    //进入可视范围执行效果
+
+
+    $(document).ready(function () {
+        $(window).bind("scroll", function (event) {
+
+            $(".timer2").each(function () {
+
+                var fold = $(window).height() + $(window).scrollTop();
+
+                if (fold <= $(this).offset().top) {
+                    $(this).trigger("appear");
+                }
+            });
+        });
+
+
+        $(".timer2").each(function () {
+            if ($(window).height() > $(this).offset().top) {
+                $('.timer2').each(count);
+            }
+
+            $(this).one("appear", function () {
+                $('.timer2').each(count);
+            });
+
+        });
+
+    });
+</script>

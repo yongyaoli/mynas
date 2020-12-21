@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>首页 {$site_info.site_name|default=''}</title>
+    <meta name="keywords" content="{$site_info.site_seo_keywords|default=''}"/>
+    <meta name="description" content="{$site_info.site_seo_description|default=''}">
+    <include file="public@head"/>
+    <link href="__TMPL__/public/assets/css/layui.css" rel="stylesheet">
+    <link href="__TMPL__/public/assets/css/index.css" rel="stylesheet">
+
+    <hook name="before_head_end"/>
+</head>
+<body>
+<include file="public@nav"/>
+<style>
+    .panel .title {
+        letter-spacing: inherit !important;
+        font-size: 40px !important;
+    }
+
+    .jsto dl {
+        float: left;
+        width: 200px;
+        padding-top: 10px;
+        padding-right: 12px;
+    }
+
+    .jsto dl > i {
+        float: left;
+        padding-right: 12px;
+    }
+
+    .jsto dd {
+        height: 58px;
+        float: left;
+        border-left: 1px solid #dbdbdb;
+        padding-left: 16px;
+        margin-top: 5px;
+        margin-bottom: 15px;
+    }
+
+    .jsto dd span {
+        display: block;
+        text-align: center;
+        font-size: 14px;
+        color: #6b6969;
+    }
+
+    .jsto dd span i {
+        font-weight: 600;
+        font-style: normal;
+    }
+
+    .gold {
+        color: #edb200;
+        font-style: normal;
+    }
+</style>
+
+
+<!-- banner部分 -->
+<php>
+    $top_slide_id=empty($theme_vars['top_slide'])?1:$theme_vars['top_slide'];
+</php>
+<div>
+    <div class="layui-carousel" id="banner">
+        <div carousel-item>
+            <slides id="$top_slide_id">
+            <div>
+                <img src="{:cmf_get_image_url($vo.image)}">
+                <div class="panel">
+                    <p class="title">{$vo.title|default=''}</p>
+                    <p style="font-size: 18px;letter-spacing:inherit">货币化网络-跨平台采样技术-我们拥有全球样本</p>
+                </div>
+            </div>
+            </slides>
+            <noslides id="$top_slide_id">
+                <div>
+                    <img src="__TMPL__/public/assets/images/demo/1.jpg">
+                    <div class="panel">
+                        <p class="title"></p>
+                        <p style="font-size: 18px;letter-spacing:inherit"></p>
+                    </div>
+                </div>
+            </noslides>
+        </div>
+    </div>
+</div>
+<div style="margin-top: 20px;margin-bottom: 20px;background-color: #efefef">
+    <div class="layui-container" style="">
+        <div class="layui-row">
+            <div class="layui-col-lg3 layui-col-md3 layui-col-sm6 layui-col-xs6 jsto">
+                <dl style="color: #888888d6">
+                    <i class="layui-icon layui-icon-website" style=" font-size: 60px;"></i>
+                    <dd>
+                        <span>覆盖全球</span>
+                        <strong style="font-size: 18px"><i class="addnum timer2" data-to="53"
+                                                           data-speed="3800">21</i>
+                            <em class="gold">个</em>
+                        </strong>
+                        <span>国家样本</span>
+                    </dd>
+                </dl>
+            </div>
+            <div class="layui-col-lg3 layui-col-md3 layui-col-sm6 layui-col-xs6 jsto">
+                <dl style="color: #888888d6">
+                    <i class="layui-icon layui-icon-survey" style=" font-size: 60px;"></i>
+                    <dd>
+                        <span>共参与</span>
+                        <span style="font-size: 18px"><i class="addnum timer2" data-to="1698600"
+                                                         data-speed="3800">2100000</i>
+                                    <em class="gold">份</em>
+                                </span>
+                        <span>问卷数量</span>
+                    </dd>
+                </dl>
+            </div>
+            <div class="layui-col-lg3 layui-col-md3 layui-col-sm6 layui-col-xs6 jsto">
+                <dl style="color: #888888d6">
+                    <i class="layui-icon layui-icon-face-smile-fine" style=" font-size: 60px;"></i>
+                    <dd>
+                        <span>共成功完成</span>
+                        <span style="font-size: 18px"><i class="addnum timer2" data-to="529277"
+                                                         data-speed="3800">21930</i>
+                                    <em class="gold">份</em>
+                                </span>
+                        <span>调查问卷</span>
+                    </dd>
+                </dl>
+            </div>
+            <div class="layui-col-lg3 layui-col-md3 layui-col-sm6 layui-col-xs6 jsto">
+                <dl style="color: #888888d6">
+                    <i class="layui-icon layui-icon-username" style=" font-size: 60px;"></i>
+                    <dd>
+                        <span>拥有全球</span>
+                        <span style="font-size: 18px"><i class="addnum timer2" data-to="10188319"
+                                                         data-speed="3800">1930</i>
+                                    <em class="gold">个</em>
+                                </span>
+                        <span>受访人数</span>
+                    </dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="layui-row">
+    <div class="layui-col-lg12 layui-col-md12 layui-col-sm12 layui-col-xs12">
+        <div id="myEcharts" style="width:100%;height: 800px; background-color: #c9d2d7;"></div>
+    </div>
+</div>
+
+
+
+
+<include file="public@footer"/>
+
+<script src="__TMPL__/public/assets/layuiadmin/layui/layui.js"></script>
+<script src="__TMPL__/public/assets/js/firm.js"></script>
+<script>
+    layui.config({
+        base: '__TMPL__/public/assets/layuiadmin/' //静态资源所在路径
+    }).extend({
+        index: 'lib/index' //主入口模块
+    }).use(['index', 'form', 'jquery', 'element','admin'], function () {
+        var $ = layui.jquery
+            , element = layui.element
+            ,admin=layui.admin
+            , form = layui.form;
+        //监听下拉框
+        $("#language").change(function(){
+            var  opt =  $("#language").val();
+            var url = changeURLPar(location.href, 'lg', opt);
+            location.href = url;
+        });
+        // form.on('select(language)', function (data) {
+        //     // console.log(data.elem); //得到select原始DOM对象
+        //     // console.log(data.value); //得到被选中的值
+        //     // console.log(data.othis); //得到美化后的DOM对象
+        //     // alert(1);
+        //     var opt = data.value;
+        //     var url = changeURLPar(location.href, 'lg', opt);
+        //     location.href = url;
+        // });
+
+        function changeURLPar(uri, par, par_value) {
+            var pattern = par + '=([^&]*)';
+            var replaceText = par + '=' + par_value;
+            if (uri.match(pattern)) {
+                var tmp = '/\\' + par + '=[^&]*/';
+                tmp = uri.replace(eval(tmp), replaceText);
+                return (tmp);
+            } else {
+                if (uri.match('[\?]')) {//如果链接中不带这个参数但是有其他参数
+                    return uri + '&' + replaceText;
+                } else {//如果链接中没有带任何参数
+                    return uri + '?' + replaceText;
+                }
+            }
+            return uri + '\n' + par + '\n' + par_value;
+        }
+    });
+
+</script>
+<script src='__TMPL__/public/assets/js/jquery.min.js'></script>
+<!-- 引入 echarts.js -->
+<script src="__TMPL__/public/assets/js/echarts.min.js"></script>
+<!--引入地图数据js文件，引入后会自动注册地图名字和数据-->
+<script src="__TMPL__/public/assets/js/world.js"></script>
+
+<include file="public@indexjs"/>
+<hook name="before_body_end"/>
+</body>
+
+</html>

@@ -1,0 +1,65 @@
+<include file="public@header"/>
+</head>
+<body>
+<div class="wrap js-check-wrap">
+    <ul class="nav nav-tabs">
+        <li><a  class="active">CB配置管理</a></li>
+    </ul>
+    <div class="row margin-top-20">
+        <div class="col-md-2">
+            <div class="list-group">
+                <a class="list-group-item" href="#A" data-toggle="tab">配置信息</a>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <form class="js-ajax-form" action="{:url('AdminCbApi/editPost')}" method="post">
+                <div class="tab-content">
+                    <div class="tab-pane active" id="A">
+
+                        <div class="form-group">
+                            <label for="input-appid"><span class="form-required">*</span>appid</label>
+                            <div>
+                                <input type="text" class="form-control" id="input-appid" name="appid" value="{$appid|default=''}">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="input-appsercet">appsercet</label>
+                            <div>
+                                <input type="text" class="form-control" id="input-appsercet" name="appsercet" value="{$appsercet|default=''}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="input-server_url"><span class="form-required">*</span>接口地址</label>
+                            <div>
+                                <input type="text" class="form-control" id="input-server_url" name="server_url" value="{$server_url|default=''}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="input-http_method"><span class="form-required">*</span>调用方式</label>
+                            <div>
+                                <input type="tel" class="form-control" id="input-http_method" name="http_method" value="{$http_method|default=''}">
+                            </div>
+                        </div>
+
+
+                        <div class="form-group" style="display: none">
+                            <label for="input-description">描述</label>
+                            <div>
+                                <textarea class="form-control" name="description" id="input-description"></textarea>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="hidden" name="id" value="{$id}">
+                    <button type="submit" class="btn btn-primary js-ajax-submit">{:lang('SAVE')}</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="__STATIC__/js/admin.js"></script>
+</body>
+</html>

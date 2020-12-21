@@ -1,0 +1,94 @@
+<include file="public@header"/>
+</head>
+<body>
+<div class="wrap js-check-wrap">
+    <ul class="nav nav-tabs">
+        <li><a href="{:url('AdminCustomer/index')}">客户管理</a></li>
+        <li><a href="{:url('AdminCustomer/add')}">添加客户</a></li>
+        <li class="active"><a>编辑客户</a></li>
+    </ul>
+    <div class="row margin-top-20">
+        <div class="col-md-2">
+            <div class="list-group">
+                <a class="list-group-item" href="#A" data-toggle="tab">基本属性</a>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <form class="js-ajax-form" action="{:url('AdminCustomer/editPost')}" method="post">
+                <div class="tab-content">
+                    <div class="tab-pane active" id="A">
+
+                        <div class="form-group">
+                            <label for="input-username"><span class="form-required">*</span>登录名</label>
+                            <div>
+                                <input type="text" class="form-control" id="input-username" name="username" value="{$username|default=''}">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="input-userpass">登录密码</label>
+                            <div>
+                                <input type="text" class="form-control" id="input-userpass" name="userpass" value="">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="input-userpass-confirm">重复密码</label>
+                            <div>
+                                <input type="text" class="form-control" id="input-userpass-confirm" name="userpass_confirm" value="">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="input-nickname"><span class="form-required">*</span>姓名</label>
+                            <div>
+                                <input type="text" class="form-control" id="input-nickname" name="nickname" value="{$nickname|default=''}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="input-mobile"><span class="form-required">*</span>手机号</label>
+                            <div>
+                                <input type="tel" class="form-control" id="input-mobile" name="mobile" value="{$mobile|default=''}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="input-email"><span class="form-required">*</span>邮箱</label>
+                            <div>
+                                <input type="email" class="form-control" id="input-email" name="email" value="{$email|default=''}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="input-zipcode"><span class="form-required">*</span>邮编</label>
+                            <div>
+                                <input type="text" class="form-control" id="input-zipcode" name="zipcode" value="{$zipcode|default=''}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="input-score"><span class="form-required">*</span>积分</label>
+                            <div>
+                                <input type="number" class="form-control" id="input-score" name="score" value="{$score|default='0'}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="input-balance"><span class="form-required">*</span>余额</label>
+                            <div>
+                                <input type="number" class="form-control" id="input-balance" name="balance" value="{$balance|default='0'}">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="hidden" name="id" value="{$id}">
+                    <button type="submit" class="btn btn-primary js-ajax-submit" data-refresh="0">{:lang('SAVE')}
+                    </button>
+                    <a class="btn btn-default" href="{:url('AdminCustomer/index')}">{:lang('BACK')}</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="__STATIC__/js/admin.js"></script>
+<script>
+    $('#input-list_tpl').val("{$list_tpl|default=''}");
+    $('#input-one_tpl').val("{$one_tpl|default=''}");
+</script>
+</body>
+</html>

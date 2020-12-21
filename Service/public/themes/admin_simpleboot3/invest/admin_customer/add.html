@@ -1,0 +1,95 @@
+<include file="public@header"/>
+</head>
+<body>
+<div class="wrap js-check-wrap">
+    <ul class="nav nav-tabs">
+        <li><a href="{:url('AdminCustomer/index')}">客户管理</a></li>
+        <li class="active"><a href="{:url('AdminCustomer/add')}">添加客户</a></li>
+    </ul>
+    <div class="row margin-top-20">
+        <div class="col-md-2">
+            <div class="list-group">
+                <a class="list-group-item" href="#A" data-toggle="tab">基本属性</a>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <form class="js-ajax-form" action="{:url('AdminCustomer/addPost')}" method="post">
+                <div class="tab-content">
+                    <div class="tab-pane active" id="A">
+
+                        <div class="form-group">
+                            <label for="input-username"><span class="form-required">*</span>登录名</label>
+                            <div>
+                                <input type="text" class="form-control" id="input-username" name="username" value="">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="input-userpass">登录密码</label>
+                            <div>
+                                <input type="text" class="form-control" id="input-userpass" name="userpass" value="">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="input-userpass-confirm">重复密码</label>
+                            <div>
+                                <input type="text" class="form-control" id="input-userpass-confirm" name="userpass_confirm" value="">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="input-nickname"><span class="form-required">*</span>姓名</label>
+                            <div>
+                                <input type="text" class="form-control" id="input-nickname" name="nickname" value="">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="input-mobile"><span class="form-required">*</span>手机号</label>
+                            <div>
+                                <input type="tel" class="form-control" id="input-mobile" name="mobile" value="">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="input-email"><span class="form-required">*</span>邮箱</label>
+                            <div>
+                                <input type="email" class="form-control" id="input-email" name="email" value="">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="input-zipcode"><span class="form-required">*</span>邮编</label>
+                            <div>
+                                <input type="text" class="form-control" id="input-zipcode" name="zipcode" value="">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="input-score"><span class="form-required">*</span>积分</label>
+                            <div>
+                                <input type="number" class="form-control" id="input-score" name="score" value="0">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="input-balance"><span class="form-required">*</span>余额</label>
+                            <div>
+                                <input type="number" class="form-control" id="input-balance" name="balance" value="0">
+                            </div>
+                        </div>
+
+                        <div class="form-group" style="display: none">
+                            <label for="input-description">描述</label>
+                            <div>
+                                <textarea class="form-control" name="description" id="input-description"></textarea>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary js-ajax-submit">{:lang('ADD')}</button>
+                    <a class="btn btn-default" href="{:url('AdminCustomer/index')}">{:lang('BACK')}</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="__STATIC__/js/admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!-- nav部分 -->
+<div class="nav index">
+    <div class="layui-container">
+        <!-- 公司logo -->
+        <div class="nav-logo">
+            <a href="/">
+                <img src="__TMPL__/public/assets/images/logo.png" width="200" height="40" alt="Tctask">
+            </a>
+        </div>
+        <div class="nav-logo" style="left: 230px">
+            <div class="layui-input-inline11" style="width:100px">
+                <select name="language" id="language"
+                        style="background-color: #fbfbfb; color: #7f8184;position: relative;z-index: 1000;height: 30px;"
+                        lay-filter="language">
+                    <option value="cn"  selected >简体中文</option>
+                    <option value="en" >English</option>
+                </select>
+            </div>
+        </div>
+        <div class="nav-list" style="font-weight: bolder;">
+            <button>
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="layui-nav" lay-filter="">
+                <li class="layui-nav-item"><a href="http://www.tctask.com">首页</a></li>
+                <navigation nav-id="" root="" id="main-navigation" class="nav navbar-nav navbar-nav-custom"
+                            max-level="0">
+                    <navigationMenu>
+                        <if condition="$level gt 1">
+                <li class="layui-nav-item"><a href="{$menu.href|default=''}" target="{$menu.target|default=''}">
+                    {$menu.name|default=''}
+                </a></li>
+                        </if>
+                    </navigationMenu>
+                    <navigationFolder root="li"
+                                      class="dropdown dropdown-custom dropdown-custom-level-{$level}"
+                                      dropdown="ul"
+                                      dropdown-class="dropdown-menu dropdown-menu-level-{$level}">
+                        <a href="#" class="dropdown-toggle dropdown-toggle-{$level}" data-toggle="dropdown">
+                            {$menu.name|default=''}<span class="caret"></span>
+                        </a>
+                    </navigationFolder>
+                </navigation>
+                <php>
+                    $login = cmf_is_user_login();
+                </php>
+                <eq name="login" value="true">
+                    <li class="layui-nav-item" style="max-width: 83px;margin-bottom: 5px;">
+                        <a href="{:cmf_url('invest/Profile/center')}" target="_blank" class="layui-btn layui-btn-xs"
+                           style="color: #ffffff;font-size: 12px;height: 22px;line-height: 22px;padding: 0 18px;">个人中心</a>
+                    </li>
+                    <li class="layui-nav-item" style="max-width: 83px;margin-bottom: 5px;">
+                        <a href="{:cmf_url('invest/Index/logout')}" target="_blank" class="layui-btn layui-btn-xs layui-btn-normal"
+                           style="color: #ffffff;font-size: 12px;height: 22px;line-height: 22px;padding: 0 18px;">退出</a>
+                    </li>
+                    <else/>
+                    <li class="layui-nav-item" style="max-width: 83px;margin-bottom: 5px;">
+                        <a href="{:cmf_url('invest/Login/index')}" target="_blank" class="layui-btn layui-btn-xs"
+                           style="color: #ffffff;font-size: 12px;height: 22px;line-height: 22px;padding: 0 18px;">登录</a>
+                    </li>
+                    <li class="layui-nav-item" style="max-width: 83px;margin-bottom: 5px;">
+                        <a href="{:cmf_url('invest/Register/index')}" target="_blank" class="layui-btn layui-btn-xs layui-btn-normal"
+                           style="color: #ffffff;font-size: 12px;height: 22px;line-height: 22px;padding: 0 18px;">注册</a>
+                    </li>
+                </eq>
+
+
+            </ul>
+        </div>
+    </div>
+</div>
